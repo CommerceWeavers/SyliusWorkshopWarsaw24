@@ -260,3 +260,8 @@ sylius_theme:
             scan_depth: 1
             directories:
                 - "%kernel.project_dir%/themes"
+
+sylius_resource:
+    mapping:
+        paths:
+            - '%kernel.project_dir%/src/Packaging/Entity/'
