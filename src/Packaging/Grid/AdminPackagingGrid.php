@@ -6,6 +6,9 @@ namespace App\Packaging\Grid;
 
 use App\Packaging\Entity\Packaging;
 use Sylius\Bundle\GridBundle\Builder\Action\CreateAction;
+use Sylius\Bundle\GridBundle\Builder\Action\DeleteAction;
+use Sylius\Bundle\GridBundle\Builder\Action\UpdateAction;
+use Sylius\Bundle\GridBundle\Builder\ActionGroup\ItemActionGroup;
 use Sylius\Bundle\GridBundle\Builder\ActionGroup\MainActionGroup;
 use Sylius\Bundle\GridBundle\Builder\Field\StringField;
 use Sylius\Bundle\GridBundle\Builder\Field\TwigField;
@@ -29,6 +32,10 @@ final class AdminPackagingGrid extends AbstractGrid implements ResourceAwareGrid
             ->addActionGroup(MainActionGroup::create(
                 CreateAction::create(),
             ))
+            ->addActionGroup(ItemActionGroup::create()
+                ->addAction(UpdateAction::create())
+                ->addAction(DeleteAction::create())
+            );
         ;
     }
 
