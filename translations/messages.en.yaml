@@ -1,3 +1,4 @@
 app:
     ui:
+        gift_cards: 'Gift Cards'
         packagings: 'Packagings'

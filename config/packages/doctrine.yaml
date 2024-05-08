@@ -21,6 +21,12 @@ doctrine:
                         dir: '%kernel.project_dir%/src/Entity'
                         prefix: 'App\Entity'
                         alias: App
+                    GiftCard:
+                        is_bundle: false
+                        type: attribute
+                        dir: '%kernel.project_dir%/src/GiftCard/Entity'
+                        prefix: 'App\GiftCard\Entity'
+                        alias: GiftCard
                     Packaging:
                         is_bundle: false
                         type: attribute

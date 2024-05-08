@@ -1,0 +1,20 @@
+sylius_fixtures:
+    suites:
+        gift_card:
+            listeners:
+                logger: ~
+            fixtures:
+                gift_card:
+                    name: gift_card
+                    options:
+                        amount: 5
+
+services:
+    App\GiftCard\:
+        resource: '../../src/GiftCard/*'
+        autowire: true
+        autoconfigure: true
+
+    App\GiftCard\Menu\AdminMenuListener:
+        tags:
+            - { name: kernel.event_listener, event: sylius.menu.admin.main, method: addGiftCardMenu }

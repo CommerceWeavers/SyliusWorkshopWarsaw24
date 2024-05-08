@@ -264,4 +264,5 @@ sylius_theme:
 sylius_resource:
     mapping:
         paths:
+            - '%kernel.project_dir%/src/GiftCard/Entity/'
             - '%kernel.project_dir%/src/Packaging/Entity/'
