@@ -8,3 +8,13 @@ sylius_fixtures:
                     name: packaging
                     options:
                         amount: 10
+
+services:
+    App\Packaging\:
+        resource: '../../src/Packaging/*'
+        autowire: true
+        autoconfigure: true
+
+    App\Packaging\Menu\AdminMenuListener:
+        tags:
+            - { name: kernel.event_listener, event: sylius.menu.admin.main, method: addPackagingsMenu }
