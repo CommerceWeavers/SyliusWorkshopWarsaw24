@@ -1,0 +1,10 @@
+sylius_fixtures:
+    suites:
+        packaging:
+            listeners:
+                logger: ~
+            fixtures:
+                packaging:
+                    name: packaging
+                    options:
+                        amount: 10
