@@ -17,6 +17,15 @@ sylius_ui:
                     template: 'Shop/Cart/Summary/giftCardCode.html.twig'
                     priority: 5
 
+winzou_state_machine:
+    sylius_order_checkout:
+        callbacks:
+            after:
+                remove_used_gift_cards:
+                    on: ['complete']
+                    do: ['@App\GiftCard\Remover\AfterCheckoutGiftCardsRemover', 'removeGiftCardsFromCart']
+                    args: ['object']
+
 services:
     App\GiftCard\:
         resource: '../../src/GiftCard/*'
@@ -26,3 +35,7 @@ services:
     App\GiftCard\Menu\AdminMenuListener:
         tags:
             - { name: kernel.event_listener, event: sylius.menu.admin.main, method: addGiftCardMenu }
+
+    App\GiftCard\Remover\AfterCheckoutGiftCardsRemover:
+        autowire: true
+        public: true
