@@ -9,6 +9,14 @@ sylius_fixtures:
                     options:
                         amount: 10
 
+sylius_ui:
+    events:
+        sylius.shop.product.show.add_to_cart_form:
+            blocks:
+                packaging:
+                    template: 'Shop/Product/Show/addToCartPackaging.html.twig'
+                    priority: 0
+
 services:
     App\Packaging\:
         resource: '../../src/Packaging/*'
