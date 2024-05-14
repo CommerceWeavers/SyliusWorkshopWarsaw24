@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\GiftCard\Grid;
 
 use App\GiftCard\Entity\GiftCard;
+use Sylius\Bundle\GridBundle\Builder\Action\Action;
 use Sylius\Bundle\GridBundle\Builder\Action\CreateAction;
 use Sylius\Bundle\GridBundle\Builder\Action\DeleteAction;
 use Sylius\Bundle\GridBundle\Builder\Action\UpdateAction;
@@ -28,6 +29,7 @@ final class AdminGiftCardGrid extends AbstractGrid implements ResourceAwareGridI
         $gridBuilder
             ->addField(StringField::create('code')->setLabel('Code'))
             ->addField(TwigField::create('amount', 'Admin/GiftCard/_amount.html.twig')->setLabel('Amount'))
+            ->addField(StringField::create('state')->setLabel('State'))
             ->addActionGroup(MainActionGroup::create(
                 CreateAction::create(),
             ))

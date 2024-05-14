@@ -22,6 +22,9 @@ use Sylius\Resource\Model\ResourceInterface;
 #[Delete(routePrefix: '/admin')]
 class GiftCard implements ResourceInterface
 {
+    public const STATE_ACTIVE = 'active';
+    public const STATE_INACTIVE = 'inactive';
+
     #[ORM\Id]
     #[ORM\GeneratedValue(strategy: 'AUTO')]
     #[ORM\Column(type: 'integer')]
@@ -32,6 +35,9 @@ class GiftCard implements ResourceInterface
 
     #[ORM\Column(type: 'integer')]
     private ?int $amount;
+
+    #[ORM\Column(type: 'string', options: ['default' => self::STATE_ACTIVE])]
+    private ?string $state = self::STATE_ACTIVE;
 
     public function getId(): int
     {
@@ -56,5 +62,15 @@ class GiftCard implements ResourceInterface
     public function setAmount(?int $amount): void
     {
         $this->amount = $amount;
+    }
+
+    public function getState(): ?string
+    {
+        return $this->state;
+    }
+
+    public function setState(?string $state): void
+    {
+        $this->state = $state;
     }
 }

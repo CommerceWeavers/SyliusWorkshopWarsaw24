@@ -23,8 +23,20 @@ winzou_state_machine:
             after:
                 remove_used_gift_cards:
                     on: ['complete']
-                    do: ['@App\GiftCard\Remover\AfterCheckoutGiftCardsRemover', 'removeGiftCardsFromCart']
+                    do: ['@App\GiftCard\Remover\AfterCheckoutGiftCardsDeactivator', 'deactivateGiftCardFromCart']
                     args: ['object']
+    app_gift_card:
+        class: '%app.model.gift_card.class%'
+        states:
+            active: ~
+            inactive: ~
+        transitions:
+            activate:
+                from: [inactive]
+                to: active
+            deactivate:
+                from: [active]
+                to: inactive
 
 services:
     App\GiftCard\:
@@ -36,6 +48,6 @@ services:
         tags:
             - { name: kernel.event_listener, event: sylius.menu.admin.main, method: addGiftCardMenu }
 
-    App\GiftCard\Remover\AfterCheckoutGiftCardsRemover:
+    App\GiftCard\Remover\AfterCheckoutGiftCardsDeactivator:
         autowire: true
         public: true

@@ -5,24 +5,26 @@ declare(strict_types=1);
 namespace App\GiftCard\Remover;
 
 use App\Entity\Order\Order;
-use Doctrine\ORM\EntityManagerInterface;
+use SM\Factory\FactoryInterface;
 use Sylius\Resource\Doctrine\Persistence\RepositoryInterface;
 
-final class AfterCheckoutGiftCardsRemover
+final class AfterCheckoutGiftCardsDeactivator
 {
     public function __construct(
         private readonly RepositoryInterface $giftCardRepository,
-        private readonly EntityManagerInterface $entityManager
+        private readonly FactoryInterface $stateMachineFactory,
     ) {
     }
 
-    public function removeGiftCardsFromCart(Order $order): void
+    public function deactivateGiftCardFromCart(Order $order): void
     {
         if ($order->getGiftCardCode() === null) {
             return;
         }
 
         $giftCard = $this->giftCardRepository->findOneBy(['code' => $order->getGiftCardCode()]);
-        $this->entityManager->remove($giftCard);
+
+        $stateMachine = $this->stateMachineFactory->get($giftCard);
+        $stateMachine->apply('deactivate');
     }
 }
