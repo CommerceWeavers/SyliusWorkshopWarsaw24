@@ -25,6 +25,13 @@ winzou_state_machine:
                     on: ['complete']
                     do: ['@App\GiftCard\Remover\AfterCheckoutGiftCardsDeactivator', 'deactivateGiftCardFromCart']
                     args: ['object']
+    sylius_order:
+        callbacks:
+            after:
+                generate_new_gift_cards:
+                    on: ['fulfill']
+                    do: ['@App\GiftCard\Generator\GiftCardGenerator', 'generateFromOrderVariants']
+                    args: ['object']
     app_gift_card:
         class: '%app.model.gift_card.class%'
         states:
@@ -49,5 +56,9 @@ services:
             - { name: kernel.event_listener, event: sylius.menu.admin.main, method: addGiftCardMenu }
 
     App\GiftCard\Remover\AfterCheckoutGiftCardsDeactivator:
+        autowire: true
+        public: true
+
+    App\GiftCard\Generator\GiftCardGenerator:
         autowire: true
         public: true
