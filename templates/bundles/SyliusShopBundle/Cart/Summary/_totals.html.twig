@@ -55,6 +55,12 @@
             <td class="right aligned">{{ money.convertAndFormat(cart.packagingTotal) }}</td>
         </tr>
         {% endif %}
+        {% if cart.giftCardTotal < 0 %}
+        <tr>
+            <td>Gift cards</td>
+            <td class="right aligned">{{ money.convertAndFormat(cart.giftCardTotal) }}</td>
+        </tr>
+        {% endif %}
         <tr class="ui large header">
             <td>{{ 'sylius.ui.order_total'|trans }}:</td>
             <td id="sylius-cart-grand-total" {{ sylius_test_html_attribute('cart-grand-total') }} class="right aligned">{{ money.convertAndFormat(cart.total) }}</td>

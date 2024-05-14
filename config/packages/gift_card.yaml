@@ -9,6 +9,14 @@ sylius_fixtures:
                     options:
                         amount: 5
 
+sylius_ui:
+    events:
+        sylius.shop.cart.coupon:
+            blocks:
+                gift_card_form:
+                    template: 'Shop/Cart/Summary/giftCardCode.html.twig'
+                    priority: 5
+
 services:
     App\GiftCard\:
         resource: '../../src/GiftCard/*'
