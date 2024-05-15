@@ -6,6 +6,7 @@ namespace App\GiftCard\Entity;
 
 use App\GiftCard\Form\Type\GiftCardAdminType;
 use Doctrine\ORM\Mapping as ORM;
+use Sylius\Resource\Metadata\ApplyStateMachineTransition;
 use Sylius\Resource\Metadata\AsResource;
 use Sylius\Resource\Metadata\Create;
 use Sylius\Resource\Metadata\Delete;
@@ -20,10 +21,14 @@ use Sylius\Resource\Model\ResourceInterface;
 #[Create(routePrefix: '/admin', formType: GiftCardAdminType::class)]
 #[Update(routePrefix: '/admin', formType: GiftCardAdminType::class)]
 #[Delete(routePrefix: '/admin')]
+#[ApplyStateMachineTransition(routePrefix: '/admin', stateMachineTransition: self::TRANSITION_DEACTIVATE, stateMachineGraph: 'default')]
+#[ApplyStateMachineTransition(routePrefix: '/admin', stateMachineTransition: self::TRANSITION_ACTIVATE, stateMachineGraph: 'default')]
 class GiftCard implements ResourceInterface
 {
     public const STATE_ACTIVE = 'active';
     public const STATE_INACTIVE = 'inactive';
+    public const TRANSITION_ACTIVATE = 'activate';
+    public const TRANSITION_DEACTIVATE = 'deactivate';
 
     #[ORM\Id]
     #[ORM\GeneratedValue(strategy: 'AUTO')]

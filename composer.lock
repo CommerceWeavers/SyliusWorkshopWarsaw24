@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c0c4b6a2436c480c5ac18a20860763eb",
+    "content-hash": "6d178e6f51ea7bd11716bdb858b0575b",
     "packages": [
         {
             "name": "alcohol/iso4217",
@@ -7012,16 +7012,16 @@
         },
         {
             "name": "sylius/grid-bundle",
-            "version": "v1.12.1",
+            "version": "v1.13.0-ALPHA.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Sylius/SyliusGridBundle.git",
-                "reference": "0ea47b97aba61162d4f4545c2dcc86963c99c8d7"
+                "reference": "e67e8d61c7ee47e38310d161da6baa0455ae0bd8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Sylius/SyliusGridBundle/zipball/0ea47b97aba61162d4f4545c2dcc86963c99c8d7",
-                "reference": "0ea47b97aba61162d4f4545c2dcc86963c99c8d7",
+                "url": "https://api.github.com/repos/Sylius/SyliusGridBundle/zipball/e67e8d61c7ee47e38310d161da6baa0455ae0bd8",
+                "reference": "e67e8d61c7ee47e38310d161da6baa0455ae0bd8",
                 "shasum": ""
             },
             "require": {
@@ -7068,7 +7068,7 @@
                 "phpunit/phpunit": "^9.5",
                 "rector/rector": "^0.13",
                 "sylius-labs/coding-standard": "^4.0",
-                "sylius/resource-bundle": "^1.10",
+                "sylius/resource-bundle": "dev-poc-new-resource-metadata",
                 "symfony/console": "^5.4 || ^6.0",
                 "symfony/dotenv": "^5.4 || ^6.0",
                 "symfony/maker-bundle": "^1.36",
@@ -7124,9 +7124,9 @@
             ],
             "support": {
                 "issues": "https://github.com/Sylius/SyliusGridBundle/issues",
-                "source": "https://github.com/Sylius/SyliusGridBundle/tree/v1.12.1"
+                "source": "https://github.com/Sylius/SyliusGridBundle/tree/v1.13.0-ALPHA.1"
             },
-            "time": "2024-01-05T14:42:50+00:00"
+            "time": "2024-01-30T12:41:30+00:00"
         },
         {
             "name": "sylius/mailer-bundle",
@@ -18653,6 +18653,7 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
+        "sylius/grid-bundle": 15,
         "sylius/resource-bundle": 10
     },
     "prefer-stable": true,
