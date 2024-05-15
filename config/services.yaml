@@ -7,7 +7,7 @@ services:
         # Automatically registers your services as commands, event subscribers, etc.
         autoconfigure: true
 
-        # Allows optimizing the container by removing unused services; this also means
+        # Allows optimizing the container by remcheoving unused services; this also means
         # fetching services directly from the container via $container->get() won't work
         public: false
 
@@ -28,3 +28,7 @@ services:
     App\Controller\:
         resource: '../src/Controller'
         tags: ['controller.service_arguments']
+
+    App\Product\AttributeType\RangeAttributeType:
+        tags:
+            - { name: sylius.attribute.type, attribute_type: range, form_type: App\Product\Form\Type\RangeAttributeTypeType, label: "Range" }
