@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9978878d3aa7978940fdf46a9dc33d04",
+    "content-hash": "c0c4b6a2436c480c5ac18a20860763eb",
     "packages": [
         {
             "name": "alcohol/iso4217",
@@ -7370,28 +7370,29 @@
         },
         {
             "name": "sylius/resource-bundle",
-            "version": "v1.10.3",
+            "version": "v1.11.0-BETA.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Sylius/SyliusResourceBundle.git",
-                "reference": "3437c1b3c1e04a4889332bf97de210b6478377ce"
+                "reference": "5129b8a1f2aff259d3304d86e162afa27a111d68"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Sylius/SyliusResourceBundle/zipball/3437c1b3c1e04a4889332bf97de210b6478377ce",
-                "reference": "3437c1b3c1e04a4889332bf97de210b6478377ce",
+                "url": "https://api.github.com/repos/Sylius/SyliusResourceBundle/zipball/5129b8a1f2aff259d3304d86e162afa27a111d68",
+                "reference": "5129b8a1f2aff259d3304d86e162afa27a111d68",
                 "shasum": ""
             },
             "require": {
-                "babdev/pagerfanta-bundle": "^3.0",
-                "doctrine/collections": "^1.6",
+                "babdev/pagerfanta-bundle": "^3.7 || ^4.0",
+                "doctrine/annotations": "^2.0",
+                "doctrine/collections": "^1.8 || ^2.0",
                 "doctrine/doctrine-bundle": "^2.0",
                 "doctrine/event-manager": "^1.1",
                 "doctrine/inflector": "^1.4 || ^2.0",
                 "doctrine/persistence": "^2.0 || ^3.0",
                 "friendsofsymfony/rest-bundle": "^3.0",
                 "gedmo/doctrine-extensions": "^2.4.12 || ^3.0",
-                "jms/serializer-bundle": "^3.5 || ^4.0",
+                "jms/serializer-bundle": "^3.5 || ^4.0 || ^5.0",
                 "php": "^8.0",
                 "sylius/registry": "^1.2",
                 "symfony/config": "^5.4 || ^6.0",
@@ -7400,7 +7401,9 @@
                 "symfony/form": "^5.4 || ^6.0",
                 "symfony/framework-bundle": "^5.4 || ^6.0",
                 "symfony/http-foundation": "^5.4 || ^6.0",
+                "symfony/intl": "^5.4 || ^6.0",
                 "symfony/routing": "^5.4 || ^6.0",
+                "symfony/security-core": "^5.4 || ^6.0",
                 "symfony/security-csrf": "^5.4 || ^6.0",
                 "symfony/translation": "^5.4 || ^6.0",
                 "symfony/twig-bundle": "^5.4 || ^6.0",
@@ -7408,6 +7411,7 @@
                 "symfony/yaml": "^5.4 || ^6.0",
                 "webmozart/assert": "^1.8",
                 "willdurand/hateoas-bundle": "^2.0",
+                "willdurand/negotiation": "^3.1",
                 "winzou/state-machine-bundle": "^0.6"
             },
             "replace": {
@@ -7417,23 +7421,27 @@
                 "doctrine/orm": "^2.5",
                 "lchrusciel/api-test-case": "^5.0",
                 "matthiasnoback/symfony-dependency-injection-test": "^4.2.1",
-                "pagerfanta/pagerfanta": "^3.0",
+                "pagerfanta/pagerfanta": "^3.7 || ^4.0",
                 "pamil/phpspec-skip-example-extension": "^4.2",
-                "phpspec/phpspec": "^7.2",
+                "phpspec/phpspec": "^7.3",
                 "phpspec/prophecy-phpunit": "^2.0",
                 "phpstan/phpstan": "^1.7",
                 "phpstan/phpstan-phpunit": "^1.1",
                 "phpstan/phpstan-webmozart-assert": "^1.2",
                 "phpunit/phpunit": "^9.5",
-                "rector/rector": "^0.13.5",
+                "rector/rector": "^0.18.2",
                 "sylius-labs/coding-standard": "^4.0",
                 "sylius/grid-bundle": "^1.7 || v1.12.0-ALPHA.1",
                 "symfony/dependency-injection": "^5.4 || ^6.0",
                 "symfony/dotenv": "^5.4 || ^6.0",
+                "symfony/messenger": "^5.4 || ^6.0",
+                "symfony/security-bundle": "^5.4 || ^6.0",
+                "symfony/serializer": "^5.4 || ^6.0",
                 "symfony/stopwatch": "^5.4 || ^6.0",
+                "symfony/uid": "^5.4 || ^6.0",
                 "symfony/workflow": "^5.4 || ^6.0",
                 "twig/twig": "^2.12 || ^3.0",
-                "vimeo/psalm": "^4.22"
+                "vimeo/psalm": "^5.20"
             },
             "suggest": {
                 "doctrine/orm": "^2.5",
@@ -7447,7 +7455,8 @@
             },
             "autoload": {
                 "psr-4": {
-                    "Sylius\\Component\\Resource\\": "src/Component/",
+                    "Sylius\\Resource\\": "src/Component/src/",
+                    "Sylius\\Component\\Resource\\": "src/Component/legacy/src/",
                     "Sylius\\Bundle\\ResourceBundle\\": "src/Bundle/"
                 }
             },
@@ -7479,9 +7488,9 @@
             ],
             "support": {
                 "issues": "https://github.com/Sylius/SyliusResourceBundle/issues",
-                "source": "https://github.com/Sylius/SyliusResourceBundle/tree/v1.10.3"
+                "source": "https://github.com/Sylius/SyliusResourceBundle/tree/v1.11.0-BETA.2"
             },
-            "time": "2023-12-01T14:25:03+00:00"
+            "time": "2024-05-14T19:59:35+00:00"
         },
         {
             "name": "sylius/state-machine-abstraction",
@@ -18642,7 +18651,9 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "sylius/resource-bundle": 10
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
